@@ -1,0 +1,102 @@
+* {
+    font-family: "Poppins", sans-serif;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+html:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: url("/img/brilliant.png");
+    z-index: -1;
+}
+
+html {
+    background-image: url("/img/fox.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.login-container {
+    z-index: 10;
+    width: 25%;
+    background-color: #292929;
+    height: 100%;
+    padding: 50px;
+    color: white;
+    box-shadow: 3px 0 5px rgba(0, 0, 0, 0.5);
+}
+
+label {
+    display: block;
+}
+
+input {
+    display: block;
+    width: 100%;
+    padding: 5px;
+    background-color: #313131;
+    border: 1px solid #212121;
+    color: white;
+    border-radius: 5px;
+    transition: .3s; 
+}
+
+input:focus {
+    background-color: #373737;
+    transition: .3s; 
+}
+
+.btn {
+    background-color: #313131;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+button.btn:hover {
+    background-color: #393939;
+}
+
+button.btn:disabled {
+    background-color: #343434;
+    cursor: initial 
+}
+button.btn:disabled:hover {
+    background-color: #343434;
+}
+.links a{
+    text-decoration: none;
+    color: #8081f0;
+    transition: .3s;
+}
+
+.links a:hover {
+    color: #9e9ff0;
+    transition: .3s;
+}
+
+.error {
+    color: red;
+    font-size: .85rem;
+}
+
+.success {
+    color: rgb(17, 204, 17);
+    font-size: .85rem;
+}

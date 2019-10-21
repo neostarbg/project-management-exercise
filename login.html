@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login - WebDesign Inc</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form action="/login" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="usernameTxt">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="passwordTxt">
+            </div>
+            <div class="form-group">
+                <button class="btn" type="submit" disabled>Log in</button>
+                <div class="links">
+                    <a href="#">Forgot password</a> or <a href="/register.html">Create an account</a>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const check = () => {
+            document.getElementsByClassName("btn")[0].disabled = (document.getElementById('usernameTxt').value === "" || document.getElementById('passwordTxt').value === "");
+        }
+
+        const inputElements = document.getElementsByTagName("input");
+        for(let i = 0; i < inputElements.length; i++) {
+            inputElements[i].onkeyup = check;
+        }
+    </script>
+</body>
+</html>

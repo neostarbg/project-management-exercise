@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login - WebDesign Inc</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <h1>Register</h1>
+        <form action="/register" method="POST">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="emailTxt">
+            </div>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="usernameTxt">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="passwordTxt">
+            </div>
+            <div class="form-group">
+                <label for="conrirm">Confirm Password</label>
+                <input type="password" name="confirm" id="confirmTxt">
+                <div class="form-group">
+            </div>
+            <p class="error"></p>
+            <button class="btn" type="submit" disabled>Register</button>
+            <div class="links" style="display: inline;">
+                <a href="/login.html">Login</a>
+            </div>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const check = () => {
+            document.getElementsByClassName("btn")[0].disabled = (document.getElementById('usernameTxt').value === "" || document.getElementById('passwordTxt').value === "");
+        }
+
+        const fields = {
+            email: document.getElementById('emailTxt'),
+            username: document.getElementById('usernameTxt'),
+            password: document.getElementById('passwordTxt'),
+            confirm: document.getElementById('confirmTxt')
+        }
+
+        const inputElements = document.getElementsByTagName("input");
+        for(let i = 0; i < inputElements.length; i++) {
+            inputElements[i].onkeyup = function () {
+                check();
+                setTimeout(function() {
+                    let error = validate(fields);
+
+                    if(error === "") {
+                        document.getElementsByClassName('error')[0].innerHTML = "Everything looks good!";
+                        document.getElementsByClassName('error')[0].className = "error success";
+                    } else {
+                        document.getElementsByClassName('error')[0].innerHTML = "Error: " + error;
+                        document.getElementsByClassName('error')[0].className = "error";
+                    }
+                }, 1500);
+            };
+        }
+
+        function isEmail(email) {
+            let re = /\S+@\S+\.\S+/;
+            return re.test(email);
+        }
+
+        function validate(fields) {
+            /* 
+                Validation
+            */
+            let errorMessage = "";
+            if(fields.email.value === "") {
+                errorMessage = "Email field is required";
+            }
+            else if(fields.username.value === "") {
+                errorMessage = "Username field is required";
+            }
+            else if(fields.password.value === "") {
+                errorMessage = "Password field is required";
+            }
+            else if(fields.confirm.value === "") {
+                errorMessage = "Confirm password field is required";
+            }
+            else if(fields.password.value !== fields.confirm.value) {
+                errorMessage = "Passwords must match";
+            }
+            else if(fields.password.value.length < 8) {
+                errorMessage = "Password must be at least 8 characters long";
+            }
+            else if(!isEmail(fields.email.value)) {
+                errorMessage = "Specified email is invalid";
+            }
+
+            return errorMessage;
+        }
+
+    </script>
+</body>
+</html>
