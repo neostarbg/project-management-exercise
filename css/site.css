@@ -1,11 +1,13 @@
 * {
     vertical-align: middle;
+    font-family: "Roboto", sans-serif;
 }
 
 html, body {
     margin: 0;
     min-height: 100%;
     width: 100%;
+    background-color: #fafafa;
 }
 
 nav {
@@ -118,13 +120,38 @@ nav ul li a.cta:hover {
 }
 
 header {
-    height: 100vh;
+    height: 320px;
     width: 100%;
     background-image: url('/img/header-fox.jpg');
     background-size: cover;
     background-position: center;
 }
 
+header h2 {
+    position: absolute ;
+    top: 240px;
+    left: 10px;
+    color: white;
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Montserrat", sans-serif; 
+    font-weight: normal;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+}
+
+.container {
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 10px;
+    padding: 60px;
+    border: 1px solid #d9d9d9;
+    background-color: #ffffff;
+    box-shadow: 0 0 3px rgba(0,0,0,.1);
+}
 
 @media screen and (max-width: 700px) {
     nav {
